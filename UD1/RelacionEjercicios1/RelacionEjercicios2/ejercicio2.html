@@ -1,11 +1,14 @@
 <script>
 
+    //Declaramos la cuenta y la propina
     let totalCuenta = Number(prompt("Indica la cuenta total del usuario: "))
-    let propina = Number(prompt("Indica la propina que ha dejado el usuario: "))
+    let porcentaje = Number(prompt("Indica la propina que ha dejado el usuario: "))
 
-    let porcentaje = (totalCuenta * propina) / 100
+    //Calculamos la propina que va a dejar el usuario
+    let propina = totalCuenta * (porcentaje / 100)
 
-    console.log("El usuario ha dejado " + porcentaje + " euros de propina")
+    //Mostramos el resultado por consola
+    console.log("El usuario ha dejado " + propina + " € de propina")
 
 
 </script>
