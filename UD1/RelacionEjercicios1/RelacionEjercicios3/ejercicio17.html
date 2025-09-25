@@ -1,0 +1,18 @@
+<script>
+
+   let duracionLlamada = Number(prompt("Introduce el número de minutos que ha durado la llamada")) 
+
+   let precioNormal = parseFloat (duracionLlamada * 0.50)
+   let precioAdicional = parseFloat(duracionLlamada * 0.30) + precioNormal
+
+   if(duracionLlamada == 3){
+        console.log("La llamada es gratis");
+   } else if(duracionLlamada >= 3 && duracionLlamada <= 10){
+        console.log("La llamada cuesta: " + precioNormal + " €");
+   } else if(duracionLlamada > 10){
+        console.log("La llamada cuesta: " + precioAdicional + " €");
+   } else{
+        console.log("El número introducido no es válido");
+   }
+
+</script>
