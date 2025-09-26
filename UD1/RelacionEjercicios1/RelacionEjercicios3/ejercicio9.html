@@ -4,8 +4,8 @@
     let numero = Number(prompt("Ingresa un número de dos cifras"))
 
     //Separamos el número de dos cifras
-    let numero1 = numero / 10
-    let numero2 = numero % 10
+    let numero1 = parseInt(numero / 10)
+    let numero2 = parseInt(numero % 10)
 
     //Una vez separado el número en dos, sumamos las dos cifras
     let suma = parseInt (numero1 + numero2)
@@ -18,6 +18,5 @@
         console.log("La suma de ambos números es de: " + suma);
         
     }
-
-
+    
 </script>

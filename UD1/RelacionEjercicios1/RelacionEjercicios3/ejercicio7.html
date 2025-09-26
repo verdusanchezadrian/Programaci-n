@@ -16,10 +16,15 @@
     } else if(operación == "*"){
         console.log(multiplicación)
     } else if(operación == "/"){
-        console.log(división);
-    }else{
+         if(numero2 != 0){
+        console.log(división);   
+    } else{
+        console.log("No se puede dividir entre 0");
+    }
+    } else{
         console.log("El caracter introducido no es válido");
     }
+    
 
 
 </script>
