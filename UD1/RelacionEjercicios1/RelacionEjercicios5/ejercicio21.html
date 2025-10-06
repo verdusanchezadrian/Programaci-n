@@ -1,0 +1,14 @@
+<script>
+
+  let numero = prompt("Introduce un número: ")
+    numero = Number(numero)
+
+    for (let i = 1; i <= numero; i++) {
+        let linea = ""
+        for (let y = 1; y <= numero - i; y++) {
+            linea += "*"
+        }
+        console.log(linea);
+    }
+
+</script>
