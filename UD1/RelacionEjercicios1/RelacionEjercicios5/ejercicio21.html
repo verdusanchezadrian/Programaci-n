@@ -1,14 +1,21 @@
 <script>
 
-  let numero = prompt("Introduce un número: ")
-    numero = Number(numero)
+     let tamanio = Number(prompt("Introduce el tamaño de la piramide:"))
+    let piramide = ""
+    let asteriscos = ""
+    let espacios = ""
+    let numEspacios = 0
+    for(let i = 0; i < tamanio; i++){
+        asteriscos+="*"
+        espacios = "" //Reseteo los espacios antes de añadirlos
+        numEspacios = tamanio - (i + 1)
 
-    for (let i = 1; i <= numero; i++) {
-        let linea = ""
-        for (let y = 1; y <= numero - i; y++) {
-            linea += "*"
+        for(let j = 0; j < numEspacios; j++){
+            espacios+=" "
         }
-        console.log(linea);
+
+        piramide = espacios + asteriscos
+        console.log(piramide);
     }
 
 </script>

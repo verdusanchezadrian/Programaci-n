@@ -1,17 +1,16 @@
 <script>
 
-    let numero1 = prompt("Introduce el primer número: ")
-    let numero2 = prompt("Introduce el segundo número: ")
+    let numeroMultiplo = Number(prompt("Introduce el multiplo a buscar: "))
+    let numeroComienzo = Number(prompt("Introduce el numero para comenzar a buscar el multiplo: "))
 
-    numero1 = Number(numero1)
-    numero2 = Number(numero2)
+   numeroComienzo++;
 
 
-    while(numero2 % numero1 != 0){
-        numero1++
+    while(numeroComienzo % numeroMultiplo != 0){
+        numeroComienzo++
     }
 
-    console.log(numero1);
+    console.log("El siguiente número múltiplo de " + numeroMultiplo + " es " + numeroComienzo);
     
 
 </script>
