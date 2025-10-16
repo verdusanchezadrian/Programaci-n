@@ -2,7 +2,7 @@
 
     let temperaturaActual = Number(prompt("Introduce la temperatura actual: "))
     let horaDelDia = Number(prompt("Introduce la hora del día (0-23)"))
-
+ 
     if(isNaN(temperaturaActual) || isNaN(horaDelDia) || horaDelDia < 0 || horaDelDia > 23){
         console.log("Introduce un dígito válido");
     } else if(temperaturaActual < 15){
