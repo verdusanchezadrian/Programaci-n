@@ -1,21 +1,19 @@
 <script>
 
     let temperatura = []
-    const diasSemana = 7
+    const DIASSEMANA = 7
     let temperaturaSemana
     let menu
     
-    for (let i = 0; i < diasSemana; i++) {
+    for (let i = 0; i < DIASSEMANA; i++) {
         temperaturaSemana = Number(prompt("Introduce la temperatura por cada dia de la semana: "))
 
-        if (isNaN(temperaturaSemana) || temperaturaSemana < 0) {
-            console.log("Introduzca un valor válido");
-            i--
-        }else{
-
+        while (temperaturaSemana < -270 || temperaturaSemana > 100 || isNaN(temperaturaSemana)) {
+            temperaturaSemana = Number(prompt("Introduce la temperatura por cada dia de la semana: "))
+        }
+        
         temperatura.push(temperaturaSemana)
 
-        }
     }
 
     console.log(temperatura);
@@ -58,10 +56,9 @@
 
                 for (let i = 0; i < temperatura.length; i++) {
                     sumatorioTemperaturas += temperatura[i]
-                    temperaturaMedia = sumatorioTemperaturas / diasSemana
+                    temperaturaMedia = sumatorioTemperaturas / DIASSEMANA
                 }
                 console.log("La temperatura media es de: " + temperaturaMedia.toFixed(2) + "  grados");
-                console.log(sumatorioTemperaturas);
 
             }else{
                 console.log("El programa ha finalizado");
