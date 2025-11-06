@@ -1,0 +1,49 @@
+<script>
+
+    let felicidadAnimales = Number(prompt("Introduce la felicidad de los animales (0-4)"))
+    let alimentosDisponibles = Number(prompt("Introduce los alimentos de los animales (0-4)"))
+    let pilasDeEstiercol = Number(prompt("Introduce a limpieza del establo (0-6)"))
+    let opcionMenu = 0
+    let opcionAlimento
+
+    alert(" Actualmente la granja se encuentra con estos valores: \n" + 
+    "Felicidad: ❤️❤️❤️❤️ (" + felicidadAnimales + "-4) \n" +
+     "Alimentos Disponibles: 🌾🌾🌾🌾("+ alimentosDisponibles +"-4) \n" +
+     "Establo: 💩💩💩💩💩💩("+ pilasDeEstiercol +"-6)")
+
+    alert("--- MENU --- \n" +
+     "1. Alimentar a los animales \n" +  
+     "2. Jugar con los animales \n" + 
+     "3. Limpiar el establo \n" +
+     "4. Comprar comida")
+
+    opcionMenu = Number(prompt("Introduce la opción que desea seleccionar del menu (1-4)"))
+
+    if (opcionMenu == 1) {
+    
+            if (pilasDeEstiercol > 3) {
+                alert("La granja está demasiado sucia, no se pueden alimentar a los animales")
+            }else{
+
+                opcionAlimento = prompt("Selecciona el alimento que quieres dar al animal (forraje/fruta)").toLowerCase()
+
+                if (opcionAlimento == "forraje") {
+                alimentosDisponibles--
+            } else if (opcionAlimento == "fruta") {
+                alimentosDisponibles--
+                felicidadAnimales++
+            
+            } else{
+                alert("introduce un alimento válido (forraje/fruta)")
+            } 
+        }
+    }
+
+    alert(" Actualmente la granja se encuentra con estos valores: \n" + 
+    "Felicidad: ❤️❤️❤️❤️ (" + felicidadAnimales + "-4) \n" +
+     "Alimentos Disponibles: 🌾🌾🌾🌾("+ alimentosDisponibles +"-4) \n" +
+     "Establo: 💩💩💩💩💩💩("+ pilasDeEstiercol +"-6)")
+    
+
+
+</script>
