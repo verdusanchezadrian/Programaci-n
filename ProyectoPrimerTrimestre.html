@@ -15,7 +15,7 @@
    
     //Solucionar manejo de errores de forma más detallada
     //Añadir un alert cada vez que exceda el numero minimo o maximo de los parametros
-    while (felicidadAnimales > 0 && felicidadAnimales <= 4 && alimentosDisponibles > 0 && alimentosDisponibles <= 4 && pilasDeEstiercol > 0 && pilasDeEstiercol <= 6) {
+    while (felicidadAnimales > 0 && felicidadAnimales <= 4 && alimentosDisponibles > 0 && alimentosDisponibles <= 4 && pilasDeEstiercol >= 0 && pilasDeEstiercol <= 6) {
 
         numeroInteraciones++
         alert(numeroInteraciones)
@@ -28,7 +28,7 @@
 
     opcionMenu = Number(prompt("Introduce la opción que desea seleccionar del menu (1-4)"))
 
-    if (opcionMenu == 1) {
+        if (opcionMenu == 1) {
     
             if (pilasDeEstiercol > 3) {
                 alert("La granja está demasiado sucia, no se pueden alimentar a los animales")
@@ -58,22 +58,26 @@
             alert("Has limpiado el establo")
           pilasDeEstiercol = 0  
 
+        } else if (opcionMenu == 4) {
+            if (alimentosDisponibles == 4 ) {
+                alert("No se puede superar el limite de alimentos")
+            }else{
+                alimentosDisponibles++
+                alert("Se ha comprado comida")
+            }  
         }
 
         if (numeroInteraciones % 3 == 0) {
             pilasDeEstiercol++
             felicidadAnimales--
-          }
+        }
+    }
     
 
     alert(" Actualmente la granja se encuentra con estos valores: \n" + 
     "Felicidad: ❤️❤️❤️❤️ (" + felicidadAnimales + "-4) \n" +
      "Alimentos Disponibles: 🌾🌾🌾🌾("+ alimentosDisponibles +"-4) \n" +
-     "Establo: 💩💩💩💩💩💩("+ pilasDeEstiercol +"-6)")
-    
-    
-    }
-
+     "Establo: 💩💩💩💩💩💩("+ pilasDeEstiercol +"-6)")    
     
 
 </script>
