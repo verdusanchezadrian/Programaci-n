@@ -1,0 +1,45 @@
+<script>
+
+    let nombreGastos = []
+    let cantidadesGastadas = []
+
+    let opcionMenu = 0
+    let nuevoNombre
+    let nuevaCantidad
+    let total = 0
+
+    while (opcionMenu != 5) {
+        
+        alert("--- MENU ---\n" +
+            "1.Añadir un nuevo gasto(nombre y cantidad).\n" +
+            "2.Ver el total de gastos hasta el momento.\n" +
+            "3.Ver los gastos más altos y más bajos del mes.\n" +
+            "4.Ver el promedio de gasto diario (suponiendo un mes de 30 dias).\n" +
+            "5.Salir del programa"
+        )
+
+        opcionMenu = Number(prompt("Introduce una opción del 1-5"))
+
+        if (opcionMenu < 1 || opcionMenu > 5 || isNaN(opcionMenu)) {
+            alert("Debes de introducir una opción válida")
+        }
+
+        if (opcionMenu == 1) {
+            nuevoNombre = prompt("Introduce el nombre del nuevo gasto")
+            nombreGastos.push(nuevoNombre)
+
+            nuevaCantidad = Number(prompt("Introduce la cantidad del nuevo gasto"))
+            cantidadesGastadas.push(nuevaCantidad)
+
+            alert("Datos añadidos correctamente")
+        }else if (opcionMenu == 2) {
+            for (let i = 0; i < cantidadesGastadas.length; i++) {
+                total+= cantidadesGastadas[i]
+            }
+            alert("Se ha gastado un total de " + total)
+        }
+    }
+
+
+
+</script>
