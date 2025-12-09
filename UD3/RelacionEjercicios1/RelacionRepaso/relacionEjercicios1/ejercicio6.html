@@ -1,14 +1,14 @@
 <script>
 
-    //Crea una función llamada esPositivo que reciba un número
-    //y devuelva true o false dependiendo de su valor
+    //Escribe una función lanzarDadoPersonalizado que reciba un número caras y devuelva un número aleatorio entre 1 y caras.
+    //Esto debe funcionar para dados con diferente número de caras, por ejemplo, un dado de 20 caras.
 
-    function esPositivo(numero) {
-        return(numero > 0)
+    function lanzarDadoPersonalizado(numeroCaras) {
+        let numeroAleatorio = Math.floor(Math.random() * numeroCaras) + 1
+        return numeroAleatorio
     }
 
-    let numero = esPositivo(-3)
-    alert(numero)
+    alert(lanzarDadoPersonalizado(20))
 
 
 </script>
