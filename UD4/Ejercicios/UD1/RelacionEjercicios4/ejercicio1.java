@@ -9,16 +9,14 @@ public class ejercicio1 {
 
         int tabla;
         int multiplicacion = 0;
-        int iteracionUsuario;
 
         System.out.println("Introduce el número: ");
         tabla = scanner.nextInt();
-
-        for (int i = 0; i < TABLADEL10; i++) {
-            iteracionUsuario = i + 1;
-            multiplicacion = tabla * iteracionUsuario;
-            System.out.println(tabla + " x " + iteracionUsuario + " = " + multiplicacion);
-        }
         scanner.close();
+
+        for (int i = 1; i <= TABLADEL10; i++) {
+            multiplicacion = tabla * i;
+            System.out.println(tabla + " x " + i + " = " + multiplicacion);
+        }
     }
 }

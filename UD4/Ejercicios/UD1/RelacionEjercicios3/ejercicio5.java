@@ -5,10 +5,10 @@ import java.util.Scanner;
 public class ejercicio5 {
     public static void main(String[] args) {
         final int DIEZ = 10;
-        final int VEINTE = 20; 
-        Scanner scanner = new Scanner(System.in);
-
+        final int VEINTE = 20;
+         
         int numero = 0;
+        Scanner scanner = new Scanner(System.in);
 
         System.out.println("Introduzca el numero: ");
         numero = scanner.nextInt();
@@ -19,6 +19,5 @@ public class ejercicio5 {
         } else{
             System.out.println("El número no está entre 10 y 20");
         }
-
     }
 }
