@@ -9,19 +9,16 @@ public class PT1 {
         final int PRECIOMAKI = 8, PRECIONIGIRI = 10, PRECIOSASHIMI = 12;
 
         Scanner scanner = new Scanner(System.in);
-        int arrozGastadoAcumulado = 0;
-        double aguaGastadaAcumulada = 0;
-        int importe = 0, arrozGastadoPedido = 0; 
-        double aguaGastadoPedido;
+        int arrozGastadoAcumulado = 0, importe = 0, arrozGastadoPedido = 0;
+        double aguaGastadaAcumulada = 0, aguaGastadoPedido;
         String tipoPlato = "";
         int contadorPedidos = 0;
         int totalPiezasMaki = 0, totalPiezasNigiri = 0, totalPiezasSashimi = 0;
         int arrozRestante = 0;
-        double aguaRestante;
+        double aguaRestante, stockAgua;
         int importeCajaTotal = 0;
         boolean stockSuperado = false;
         int numeroPedidos, stockArroz, unidades;
-        double stockAgua;
 
         System.out.println("Número de pedidos: ");
         numeroPedidos = scanner.nextInt();
@@ -52,7 +49,7 @@ public class PT1 {
             System.out.println("Tipo de plato (maki/nigiri/sashimi)".toLowerCase());
             tipoPlato = scanner.next();
 
-            while (!tipoPlato.equals("maki")  && !tipoPlato.equals("nigiri") && !tipoPlato.equals("sashimi") ) {
+            while (!tipoPlato.equals("maki") && !tipoPlato.equals("nigiri") && !tipoPlato.equals("sashimi")) {
                 System.out.println("Tipo de plato (maki/nigiri/sashimi)".toLowerCase());
                 tipoPlato = scanner.next();
             }
@@ -104,9 +101,12 @@ public class PT1 {
                     totalPiezasSashimi += unidades;
                 }
 
-                System.out.println("Plato: " + tipoPlato + " | Unidades: " + unidades + " | Importe cobrado: " + importe + " €");
-                System.out.println("Arroz gastado en el pedido: " + arrozGastadoPedido + "g | Arroz acumulado: " + arrozGastadoAcumulado + "g");
-                System.out.printf("Agua gastado en el pedido (L): %.2f | Agua acumulada (L): %.2f", aguaGastadoPedido, aguaGastadaAcumulada);
+                System.out.println(
+                        "Plato: " + tipoPlato + " | Unidades: " + unidades + " | Importe cobrado: " + importe + " €");
+                System.out.println("Arroz gastado en el pedido: " + arrozGastadoPedido + "g | Arroz acumulado: "
+                        + arrozGastadoAcumulado + "g");
+                System.out.printf("Agua gastado en el pedido (L): %.2f | Agua acumulada (L): %.2f", aguaGastadoPedido,
+                        aguaGastadaAcumulada);
             }
         }
 
@@ -115,8 +115,10 @@ public class PT1 {
 
         System.out.println("=== RESUMEN FINAL ===");
         System.out.println("Pedidos registrados: " + contadorPedidos + " de " + numeroPedidos);
-        System.out.println("Unidades Maki: " + totalPiezasMaki + " | Nigiri: " + totalPiezasNigiri + " | Sashismi: " + totalPiezasSashimi);
-        System.out.println("Consumo total Arroz: " + arrozGastadoAcumulado + " g | Agua: " + aguaGastadaAcumulada + " L");
+        System.out.println("Unidades Maki: " + totalPiezasMaki + " | Nigiri: " + totalPiezasNigiri + " | Sashismi: "
+                + totalPiezasSashimi);
+        System.out
+                .println("Consumo total Arroz: " + arrozGastadoAcumulado + " g | Agua: " + aguaGastadaAcumulada + " L");
         System.out.println("Stock restante Arroz: " + arrozRestante + " g | Agua: " + aguaRestante + " L");
         System.out.println("Caja del día: " + importeCajaTotal + " €");
 
