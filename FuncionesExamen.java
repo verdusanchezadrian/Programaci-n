@@ -2,9 +2,144 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class FuncionesExamen {
-    // PREPARAR FUNCIONES TÍPICAS QUE PENSAMOS QUE VAYAN A CAER EN EL EXAMEN TEMA 4
-    // POR EJEMPLO: LEER STTRING_DE_ARRAYS, EVITAR_DUPLICADOS, IMPRIMIR_MENSAJE ETC
-    // ¡¡¡¡¡ FALTA EL MANEJO DE ERRORES!!!!
+  
+    static boolean esTrabajoValido(String trabajo) {
+        boolean resultado =
+                trabajo.equals("arado") ||
+                trabajo.equals("transporte") ||
+                trabajo.equals("siembra");
+        return resultado;
+    }
+
+     public static String leerTrabajoValido(Scanner scanner){
+        String trabajo = "";
+        boolean valido = false;
+
+        while (!valido) {
+            imprimirPrompt("Trabajo (arado/ transporte/ siembra)");
+            trabajo = scanner.nextLine().trim().toLowerCase();
+            valido = esTrabajoValido(trabajo);
+            if (!valido) {
+                imprimirMensaje("Trabajo no válido");
+            }
+        }
+        return trabajo;
+    }
+
+    public static void aniadirTractor(Scanner scanner, ArrayList<String> marca, ArrayList<Integer> potencia, ArrayList<String> trabajo){
+        imprimirPrompt("Marca del tractor: ");
+        String nuevoTractor = scanner.nextLine().trim();
+        marca.add(nuevoTractor);
+        
+        int nuevaPotencia = leerEnteroMayorQueCero(scanner, "Potencia (CV): ");
+        potencia.add(nuevaPotencia);
+        
+        String nuevoTipoTrabajo = leerTrabajoValido(scanner);
+        trabajo.add(nuevoTipoTrabajo);
+    }
+
+     static boolean terminaEnDigito(String texto) {
+        boolean terminaEnNumero = false;
+
+        if (texto.length() > 0) {
+            char ultimo = texto.charAt(texto.length() - 1);
+            terminaEnNumero = (ultimo >= '0' && ultimo <= '9');
+        }
+
+        return terminaEnNumero;
+    }
+
+    static boolean terminaEnPar(String texto) {
+        boolean par = false;
+
+        if (terminaEnDigito(texto)) {
+            char ultimo = texto.charAt(texto.length() - 1);
+            int numero = ultimo - '0';
+            par = (numero % 2 == 0);
+        }
+
+        return par;
+    }
+
+    public static int leerEnteroMayorQueCero(Scanner scanner, String propmpt){
+        int numero = 0;
+
+        while (numero <= 0) {
+            imprimirPrompt(propmpt);
+            numero = leerEntero(scanner);
+            if (numero <= 0) {
+                imprimirMensaje("Debe ser mayor que 0.");
+            }
+        }
+        return numero;
+    }
+
+      public static void listarTractores(ArrayList<String> marca, ArrayList<Integer> potencia, ArrayList<String> trabajo){
+        if (marca.isEmpty()) {
+            imprimirMensaje("No hay tractores");
+        } else {
+            int indice = 0;
+            while (indice < marca.size()) {
+                imprimirMensaje(indice + " -> Marca: " + marca.get(indice) + 
+                                " | " + potencia.get(indice) +
+                                "CV | trabajo: " + trabajo.get(indice));
+                indice++;
+            }
+        }
+    }
+
+     public static int pedirIndiceValido(Scanner scanner, int tam, String propmpt){
+            int indice = -1;
+
+            while (indice < 0 || indice >= tam) {
+                imprimirPrompt(propmpt);
+                indice = leerEntero(scanner);
+                if (indice < 0 || indice >= tam) {
+                    imprimirMensaje("Indice fuera de rango");
+                }
+            }
+            return indice;
+    }    
+
+    public static void eliminarTractor(Scanner scanner, ArrayList<String> marca, ArrayList<Integer> potencia, ArrayList<String> trabajo) {
+        if (marca.isEmpty()) {
+            imprimirMensaje("No hya tractores para eliminar");
+        } else {
+            listarTractores(marca, potencia, trabajo);
+            int indice = pedirIndiceValido(scanner, marca.size(), "Índice a eliminar: ");
+            marca.remove(indice);
+            potencia.remove(indice);
+            trabajo.remove(indice);
+            imprimirMensaje("Tractor eliminado correctamente");
+        }
+    }
+
+     public static void imprimirPrompt(String mensaje){
+        System.out.println(mensaje);
+    }
+
+    public static int mostrarMenuYLeerOpcion(Scanner scanner, String menu){
+        imprimirMensaje(menu);
+        imprimirPrompt("Opción: ");
+        int opcion = leerEntero(scanner);
+        return opcion;
+    }
+
+     public static int leerEntero(Scanner scanner){
+        int numero = 0;
+        boolean numeroValido = false;
+
+        while (!numeroValido) {
+            String texto = scanner.nextLine().trim();
+            try {
+                numero = Integer.parseInt(texto);
+                numeroValido = true;
+            } catch (Exception e) {
+                imprimirPrompt("Debes introducir un número entero: ");
+            }
+        }
+        return numero;
+    }
 
 
      public static boolean esNegativo(int n) {
@@ -56,7 +191,7 @@ public class FuncionesExamen {
     public static int leerNumero(String mensaje, Scanner sc) {
         System.out.println(mensaje);
         int numero = sc.nextInt();
-        sc.nextLine(); // limpiar buffer
+        sc.nextLine(); 
         return numero;
     }
 
